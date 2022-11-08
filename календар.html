@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- saved from url=(0138)http://localhost:63342/RGB/%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80.html?_ijt=s114s9pe69jcft9f0gvo7ep7f0&_ij_reload=RELOAD_ON_SAVE -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <style>
+    table
+    {
+      text-align:center;
+    }
+    ing
+    {
+    width:150px;
+      beigth:150px;
+    }
+  </style>
+
+</head>
+  <body>
+
+  <table bozder="1">
+    <tbody><tr>
+    <td><fond color="green"><b>LIPEC</b><fond><br><img scr="1a.JPG">
+      <table bgcolor="#eeeeee">
+<tbody><tr>
+
+        <td>Pn</td><td>Wt</td><td>Śr</td><td>Czw</td><td>Pt</td><td>Sb</td>
+  <td><font color="red">Nd</font></td>
+</tr>
+        <tr>
+        <td>1</td><td>2</td><td>3</td><td>4</td><td>
+           <font color="red">5 </font></td>
+        </tr>
+        <tr>
+        <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>
+        <font color="red">12</font></td>
+        </tr>
+        <tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>
+        <font color="red"> 19</font></td>
+        <td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>
+        <font color="red"> 26</font></td>
+      </tr>
+        <tr>
+          <td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td>
+        </tr>
+      </tbody></table>
+  
+
+</fond></fond></td><td><font color="green"><b>SIERPIEŃ</b></font><br><img scr="1a.JPG">
+  <table bgcolor="#eeeeee">
+    <tbody><tr>
+
+      <td>Pn</td><td>Wt</td><td>Śr</td><td>Czw</td><td>Pt</td><td>Sb</td>
+      <td><font color="red">Nd</font></td>
+    </tr>
+    <tr>
+      <td>1</td><td>2</td><td>3</td><td>4</td><td>
+      <font color="red">5 </font></td>
+    </tr>
+    <tr>
+      <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>
+      <font color="red">12</font></td>
+    </tr>
+    <tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>
+    <font color="red"> 19</font></td>
+    <td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>
+    <font color="red"> 26</font></td>
+    </tr>
+    <tr>
+      <td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td>
+    </tr>
+  </tbody></table>
+  
+
+
+
+
+
+
+
+<script>
+(function() {
+  var ws = new WebSocket('ws://' + window.location.host + 
+             '/jb-server-page?reloadMode=RELOAD_ON_SAVE&'+
+             'referrer=' + encodeURIComponent(window.location.pathname));
+  ws.onmessage = function (msg) {
+      if (msg.data === 'reload') {
+          window.location.reload();
+      }
+      if (msg.data.startsWith('update-css ')) {
+          var messageId = msg.data.substring(11);
+          var links = document.getElementsByTagName('link');
+          for (var i = 0; i < links.length; i++) {
+              var link = links[i];
+              if (link.rel !== 'stylesheet') continue;
+              var clonedLink = link.cloneNode(true);
+              var newHref = link.href.replace(/(&|\?)jbUpdateLinksId=\d+/, "$1jbUpdateLinksId=" + messageId);
+              if (newHref !== link.href) {
+                clonedLink.href = newHref;
+              }
+              else {
+                var indexOfQuest = newHref.indexOf('?');
+                if (indexOfQuest >= 0) {
+                  // to support ?foo#hash 
+                  clonedLink.href = newHref.substring(0, indexOfQuest + 1) + 'jbUpdateLinksId=' + messageId + '&' + 
+                                    newHref.substring(indexOfQuest + 1);
+                }
+                else {
+                  clonedLink.href += '?' + 'jbUpdateLinksId=' + messageId;
+                }
+              }
+              link.replaceWith(clonedLink);
+          }
+      }
+  };
+})();
+</script></td></tr></tbody></table></body></html>
